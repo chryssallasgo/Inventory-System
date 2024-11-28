@@ -10,7 +10,7 @@ class PCPart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'pcpart_id',
+        'partcategory_id',
         'manufacturer_id',
         'pcpart_name',
         'pcpart_price'
@@ -18,7 +18,7 @@ class PCPart extends Model
 
     public function partcategory()
     {
-        return $this->belongsTo(PartCategory::class, 'pcpart_id');
+        return $this->belongsTo(PartCategory::class, 'partcategory_id');
     }
 
     public function manufacturer()

@@ -47,12 +47,12 @@ class IndexPC extends Component
 
     public function applySearch(Builder $query)
     {
-        return $query->where('name', 'like', '%' . $this->search . '%')
-                     ->orWhere('email', 'like', '%' . $this->search . '%')
-                     ->orWhereHas('class', fn ($query)=> $query->where('name', 'like', '%' . $this->search . '%'));
+        return $query->where('pcpart_name', 'like', '%' . $this->search . '%')
+                     ->orWhere('partprice', 'like', '%' . $this->search . '%')
+                     ->orWhereHas('partcategory', fn ($query)=> $query->where('pcpart_name', 'like', '%' . $this->search . '%'));
     }
-    public function delete(PCPart $student)
+    public function delete(PCPart $pcpart)
     {
-        $student->delete();
+        $pcpart->delete();
     }
 }

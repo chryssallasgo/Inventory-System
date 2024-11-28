@@ -14,12 +14,12 @@ class EditPC extends Component
 
     public PCForm $pcform;
 
-    public $manufacturers = [];
+    public $manufacturer = [];
 
     public function mount()
     {
         $this->pcform->setPCPart($this->pcpart);
-        $this->manufacturers = Manufacturer::where('pcpart_id', $this->pcpart->pcpart_id)->get();
+        $this->manufacturer = Manufacturer::where('pcpart_id', $this->pcpart->pcpart_id)->get();
     }
 
     public function render()
@@ -32,7 +32,7 @@ class EditPC extends Component
     public function updated($property)
     {
         if ($property === 'form.pcpart_id') {
-            $this->manufacturers = Manufacturer::where('pcpart_id', $this->pcform->pcpart_id)->get();
+            $this->manufacturer = Manufacturer::where('pcpart_id', $this->pcform->pcpart_id)->get();
         }
 
         // if($property === 'form.section_id'){

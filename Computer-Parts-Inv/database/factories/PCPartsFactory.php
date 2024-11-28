@@ -17,7 +17,8 @@ class PCPartsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'pcpart_name' => fake()->name(),
+            'pcpart_price' => fake()->unique()->safeEmail()
         ];
     }
 }

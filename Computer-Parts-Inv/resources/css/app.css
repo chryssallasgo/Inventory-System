@@ -24,3 +24,15 @@
 .animation-delay-200 {
     animation-delay: 0.2s;
 }
+.gear-icon img, .logout-icon img {
+    opacity: 0.3;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.gear-icon:hover img {
+    opacity: 1;
+}
+
+.logout-icon:hover img {
+    opacity: 1;
+}
