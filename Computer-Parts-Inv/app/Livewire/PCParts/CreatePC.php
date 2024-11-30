@@ -10,21 +10,39 @@ use Livewire\Component;
 
 class CreatePC extends Component
 {
-    //public StudentForm $form;
+    public $PCform = [ 
+        'pcname' => '', 
+        'partcategory' => '', 
+        'pcpart_id' => '', 
+        'manufacturer_id' => '', 
+    ];
+    //public Form $form;
+ 
+    public $partcategory;
+    public $manufacturers = [];
 
-    public $sections = [];
+    protected $rules = [ 
+        'PCform.pcpart_name' => 'required|string|max:255', 
+        'PCform.pcpart_price' => 'required|numeric', 
+        'PCform.partcategory_id' => 'required|integer', 
+        'PCform.manufacturer_id' => 'required|integer', ];
 
     public function render()
     {
-        return view('livewire.pcpart.createpc',[
-        'partcategory' => PartCategory::all()
+        return view('livewire.pcparts.createpc',[
+            'partcategory' => PartCategory::all()
         ]);
+    }
+    public function mount() 
+    { 
+        $this->manufacturers = Manufacturer::all(); 
+        $this->partcategory = PartCategory::all();
     }
 
     public function updated($property)
     {
-        if ($property === 'form.pcpart_id') {
-            $this->sections = Manufacturer::where('manufacturer_id', $this->form->pcpart_id)->get();
+        if ($property === 'PCform.partcategory_id') {
+            $this->manufacturers = Manufacturer::where('partcategory_id', $this->PCform['partcategory_id'])->get();
         }
 
         // if($property === 'form.section_id'){
@@ -37,12 +55,12 @@ class CreatePC extends Component
         $this->validate();
         
         PCPart::create(
-            $this->form->all()
+            $this->PCform
         );
         
-       //flash()->success('Student added successfully');
+       flash()->success('Computer part added successfully');
         
-        return $this->redirect(PCPart::class, navigate: true);
+        return redirect()->route('pcparts.indexpc');
     }
 
 }

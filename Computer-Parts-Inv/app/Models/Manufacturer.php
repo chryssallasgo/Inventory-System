@@ -9,9 +9,11 @@ class Manufacturer extends Model
 {
     use HasFactory;
 
+    protected $table = 'manufacturer';
+
     protected $fillable = [
-        'pcpart_name',
-        'pcpart_id'
+        'name',
+        'partcategory_id'
     ];
 
     public function partcategory()

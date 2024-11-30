@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('partcategory', function (Blueprint $table) {
             $table->id();
-            $table->string('pcpart_name');
+            $table->string('name');
             $table->timestamps();
         });
     }

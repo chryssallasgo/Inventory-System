@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class PCPart extends Model
 {
     use HasFactory;
-
+    protected $table = 'pcpart';
     protected $fillable = [
-        'partcategory_id',
-        'manufacturer_id',
         'pcpart_name',
-        'pcpart_price'
+        'pcpart_price',
+        'partcategory_id',
+        'manufacturer_id'
+
     ];
 
     public function partcategory()
@@ -24,5 +25,10 @@ class PCPart extends Model
     public function manufacturer()
     {
         return $this->belongsTo(Manufacturer::class, 'manufacturer_id');
+    }
+
+    public function getFormattedPriceAttribute() 
+    { 
+        return '$' . number_format($this->pcpart_price, 2); 
     }
 }

@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\PCParts;
-
+use App\Livewire\PCParts\EditPC;
 
 Route::get('/', function () {
     return view('homepage');
@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/PCParts', PCParts\IndexPC::class)->name('pcparts.indexpc');
     Route::get('/PCParts/CreatePC', PCParts\CreatePC::class)->name('pcparts.createpc');
-    Route::get('/PCParts/EditPC/{pcpart}', PCParts\EditPC::class)->name('pcparts.editpc');
+    Route::get('/pcparts/{pcpart}/editpc', EditPC::class)->name('pcparts.editpc');
 });
 
 require __DIR__.'/auth.php';

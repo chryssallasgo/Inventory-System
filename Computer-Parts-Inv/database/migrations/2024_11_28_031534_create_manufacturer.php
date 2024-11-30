@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('manufacturer', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pcpart_id')->constrained('partcategory');
-            $table->string('pcpart_name');
+            $table->string('name')->nullable();
+            $table->foreignId('partcategory_id')->nullable()->constrained('partcategory');
             $table->timestamps();
         });
     }

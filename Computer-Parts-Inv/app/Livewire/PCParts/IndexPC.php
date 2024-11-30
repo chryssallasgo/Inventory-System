@@ -26,7 +26,7 @@ class IndexPC extends Component
         $query = $this->applySort($query);
 
         return view('livewire.pcparts.indexpc', [
-            'pcparts' => $query->paginate(10)
+            'pcparts' => $query->paginate(10),
         ]);
     }
     public function applySort(Builder $query)
@@ -47,12 +47,10 @@ class IndexPC extends Component
 
     public function applySearch(Builder $query)
     {
-        return $query->where('pcpart_name', 'like', '%' . $this->search . '%')
-                     ->orWhere('partprice', 'like', '%' . $this->search . '%')
-                     ->orWhereHas('partcategory', fn ($query)=> $query->where('pcpart_name', 'like', '%' . $this->search . '%'));
+        return $query->where('pcpart_name', 'like', '%' . $this->search . '%');
     }
-    public function delete(PCPart $pcpart)
-    {
+    public function delete(PCPart $pcpart) 
+    { 
         $pcpart->delete();
     }
 }
