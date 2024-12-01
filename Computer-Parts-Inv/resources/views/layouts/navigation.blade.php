@@ -1,4 +1,4 @@
-<nav x-data="{ openProfile: false, openVendors: false, openServices: false }" class="fixed w-64 h-screen text-white bg-gray-800">
+<nav x-data="{ openProfile: false, openVendors: false, openServices: false }" class="fixed z-30 w-64 h-screen text-white bg-gray-800">
     <!-- Sidebar Logo -->
     <div class="px-6 py-4">
         <img src="https://cdn-icons-png.flaticon.com/128/900/900618.png" alt="Logo" class="py-5 sm:ml-1">
@@ -10,7 +10,7 @@
 
     <!-- Sidebar Navigation Links -->
     <div class="mt-6 space-y-2">
-        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="block px-4 py-2 rounded-md hover:bg-gray-700">
+        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="block px-4 py-2 rounded-md hover:bg-orange-500">
             <span class="flex items-center text-base">
                 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
@@ -23,7 +23,7 @@
 
         <!-- Computer Parts Section -->
         <div>
-            <button @click="openVendors = !openVendors" class="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-700">
+            <button @click="openVendors = !openVendors" class="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-orange-500">
                 <span>View Computer Parts</span>
                 <svg :class="{ 'rotate-180': openVendors }" class="w-4 h-4 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -39,7 +39,7 @@
 
         <!-- Services Section -->
         <div>
-            <button @click="openServices = !openServices" class="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-700">
+            <button @click="openServices = !openServices" class="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-orange-500">
                 <span>Services</span>
                 <svg :class="{ 'rotate-180': openServices }" class="w-4 h-4 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />

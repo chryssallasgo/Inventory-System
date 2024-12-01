@@ -87,10 +87,10 @@
                                 
                             </div>
                             <div class="flex justify-end mt-4 gap-x-3">
-                                <a href="{{ route('pcparts.indexpc') }}" class="inline-flex items-center px-4 py-3 text-sm font-medium text-gray-100 bg-blue-900 border border-transparent rounded-lg gap-x-2 hover:bg-indigo-200 focus:outline-none focus:bg-indigo-200 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-blue-600 dark:focus:bg-blue-900">
+                                <a href="{{ route('pcparts.indexpc') }}" class="inline-flex items-center px-4 py-3 text-sm font-medium text-gray-100 bg-orange-900 border border-transparent rounded-lg gap-x-2 hover:bg-orange-200 focus:outline-none focus:bg-indigo-200 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-orange-600 dark:focus:bg-orange-900">
                                     Cancel
                                 </a>
-                                <button type="submit" class="px-4 py-3 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                                <button type="submit" class="px-4 py-3 text-sm font-medium text-white bg-orange-600 border border-transparent rounded-lg gap-x-2 hover:bg-orange-700 focus:outline-none focus:bg-orange-700 disabled:opacity-50 disabled:pointer-events-none">
                                     Save
                                 </button>
                             </div>

@@ -63,11 +63,11 @@
                                             <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap dark:text-neutral-200">{{ $pcpart->partcategory->name }}</td>
                                             <td class="px-6 py-4 text-sm text-gray-800 whitespace-wrap dark:text-neutral-200">{{ $pcpart->manufacturer->name }}</td>
                                             <td class="px-6 py-4 text-sm font-medium whitespace-nowrap text-end">
-                                              <a href="{{ route('pcparts.editpc', $pcpart) }}" wire:navigate class="text-sm font-semibold text-blue-600 border border-transparent rounded-lg gap-x-2 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Edit</a>
+                                              <a href="{{ route('pcparts.editpc', $pcpart) }}" wire:navigate class="inline-flex items-center border-transparent gap-x-2 focus:outline-none disabled:opacity-50 disabled:pointer-events-none"><img src="https://cdn-icons-png.flaticon.com/128/8961/8961331.png" alt="Edit Icon" class="w-6 h-6"></a>
                                             <button type="button" 
                                               wire:click="delete({{$pcpart->id}})"
                                               wire:confirm="Are you sure you want to delete this student?"
-                                              class="inline-flex items-center text-sm font-semibold text-blue-600 border border-transparent rounded-lg gap-x-2 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
+                                              class="inline-flex items-center focus:outline-none focus:text-gray-800 disabled:opacity-50 disabled:pointer-events-none"><img src="https://cdn-icons-png.flaticon.com/128/9713/9713380.png" alt="Delete Icon" class="w-6 h-6 "> </button>
                                             </td>
                                         </tr>
                                     @endforeach
