@@ -12,12 +12,34 @@ class CustomFakerProvider extends Base
         'Kulafu' => 'Beverages',
         'SafeGuard' => 'Necessities',
         'SkyFlakes' => 'Food',
+        'Nestlé' => 'Food',
+        'PepsiCo' => 'Beverages',
+        'Kraft Heinz' => 'Food',
+        'Dr Pepper Snapple Group' => 'Beverages',
+        'Procter & Gamble' => 'Necessities',
+        'Johnson & Johnson' => 'Necessities',
+        'Monster Beverage Corporation' => 'Beverages',
+        'Red Bull GmbH' => 'Beverages',
+        'Kimberly-Clark' => 'Necessities',
 
     ];
 
     public function manufacturer()
     {
-        $manufacturers = ['Coca Cola Company', 'Unilever', 'Monde M.Y. San Corporation'];    //'Gigabyte', 'Kingston', 'MSI', 'EVGA', 'ASUS', 'AsRock', 'Western Digital', 'Samsung'
+        $manufacturers = [
+            'Coca Cola Company', 
+            'Unilever', 
+            'Monde M.Y. San Corporation',
+            'Nestlé',
+            'PepsiCo',
+            'Kraft Heinz',
+            'Dr Pepper Snapple Group',
+            'Procter & Gamble',
+            'Johnson & Johnson',
+            'Monster Beverage Corporation',
+            'Red Bull GmbH',
+            'Kimberly-Clark',
+        ];   
          return $this->generator->randomElement($manufacturers);
     }
 

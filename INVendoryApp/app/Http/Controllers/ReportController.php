@@ -13,12 +13,19 @@ class ReportController extends Controller
     public function generateReport()
     {
         $item= Item::all();
+
+        $totalPrice = $item->sum(function ($item){
+            return $item->item_price * $item->item_quantity;
+        });
+
+        
         $data = [
             'item_name' => $item,
             'item_price' => 'item price',
             'item_quantity' => 'item quantity',
             'category_id' => 'category id',
             'manufacturer_id' => 'manufactuere id',
+            'total_price' => $totalPrice,
         ];
 
         $pdf = PDF::loadView('report', $data);

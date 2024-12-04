@@ -4,8 +4,8 @@
   
             <div class="flex justify-between p-4 item-center">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-800 dark:text-neutral-500">Computer Parts</h1>
-                    <p class="text-sm text-gray-500 dark:text-neutral-400">List of Computer Parts</p>
+                    <h1 class="text-2xl font-bold text-gray-800 dark:text-neutral-500">Item Database</h1>
+                    <p class="text-sm text-gray-500 dark:text-neutral-400">List of Items</p>
                 </div>
                <div>
                 <a href="{{ route('pcparts.createpc') }}" wire:navigate class="inline-flex items-center px-4 py-3 mb-4 text-sm font-medium text-white bg-orange-500 border border-transparent rounded-lg shadow-md gap-x-2 hover:bg-amber-600 focus:outline-none focus:bg-orange-600 disabled:opacity-50 disabled:pointer-events-none">

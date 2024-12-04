@@ -35,7 +35,7 @@ class EditPC extends Component
          $this->category_id = $this->pcform['category_id'];
          $this->manufacturer_id = $this->pcform['manufacturer_id'];
 
-       $this->manufacturers = Manufacturer::all(); 
+        $this->manufacturers = Manufacturer::all(); 
         $this->category = Category::all();
     }
     public function render()
