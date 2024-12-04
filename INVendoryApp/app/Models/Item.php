@@ -14,14 +14,14 @@ class Item extends Model
         'item_name',
         'item_price',
         'item_quantity',
-        'partcategory_id',
+        'category_id',
         'manufacturer_id'
 
     ];
 
-    public function partcategory()
+    public function category()
     {
-        return $this->belongsTo(PartCategory::class, 'partcategory_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function manufacturer()

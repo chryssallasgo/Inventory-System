@@ -4,74 +4,68 @@ namespace App\Livewire\PCParts;
 
 use App\Livewire\Forms\PCForm;
 use App\Models\Manufacturer;
-use App\Models\PartCategory;
+use App\Models\Category;
 use App\Models\Item;
 use Livewire\Component;
 
 class EditPC extends Component
 {
+    public $id;
     public Item $item; 
-    public PCForm $pcform; 
+    public $pcform = []; 
     public $manufacturers = []; 
-    public $partcategory = [];
-    //public $item_name;
-   // public $item_price;
-    //public $item_quantity;
-    //public $partcategory_id;
-    //public $manufacturer_id;
+    public $category = [];
+    public $item_name;
+    public $item_price;
+    public $item_quantity;
+    public $category_id;
+    public $manufacturer_id;
 
-    public function mount(Item $item)
+    public function mount($id=null)
     {
-        $this->item=$item;
-        $this->pcform = new PCForm($this, [ 
-            'item_name' => $item->item_name, 
-            'item_price' => $item->item_price, 
-            'item_quantity' => $item->item_quantity, 
-            'partcategory_id' => $item->partcategory_id, 
-            'manufacturer_id' => $item->manufacturer_id, 
-        ]);
-        $this->partcategory = PartCategory::all(); 
-        $this->manufacturers = Manufacturer::where('partcategory_id', $item->partcategory_id)->get();
-    }
-    protected function rules() 
-    { 
-        return [ 
-         'pcform.item_name' => 'required|string|max:255', 
-         'pcform.item_price' => 'required|numeric|min:0', 
-         'pcform.item_quantity' => 'required|numeric|min:0', 
-         'pcform.partcategory_id' => 'required|exists:partcategory,id', 
-         'pcform.manufacturer_id' => 'required|exists:manufacturer,id', 
-        ]; 
+         // dd($this->pcform);
+         $this->id = $id; // Store the ID
+         $item = Item::findOrFail($this->id); // Get the item or fail
+ 
+         // Populate the form data
+         $this->pcform = $item->toArray(); 
+         $this->item_name = $this->pcform['item_name'];
+         $this->item_price = $this->pcform['item_price'];
+         $this->item_quantity = $this->pcform['item_quantity'];
+         $this->category_id = $this->pcform['category_id'];
+         $this->manufacturer_id = $this->pcform['manufacturer_id'];
+
+       $this->manufacturers = Manufacturer::all(); 
+        $this->category = Category::all();
     }
     public function render()
     {
         
         return view('livewire.pcparts.editpc', [
-            'partcategory' => $this->partcategory, 
+            'category' => $this->category,
             'manufacturers' => $this->manufacturers,
         ]);
     }
-
-    public function updated($property)
-    {
-        if ($property === 'pcform.partcategory_id') {
-            // Update manufacturers based on selected part category
-             $this->manufacturers = Manufacturer::where('partcategory_id', $this->pcform->partcategory_id)->get();
-        }
-    }
-
     public function update()
     {
-        $this->validate();
-        // Map the validated data to the model 
-        $this->item->item_name = $this->pcform->item_name; 
-        $this->item->item_price = $this->pcform->item_price; 
-        $this->item->item_quantity = $this->pcform->item_quantity; 
-        $this->item->partcategory_id = $this->pcform->partcategory_id; 
-        $this->item->manufacturer_id = $this->pcform->manufacturer_id; 
-        
-        // Update the record in the database $this->item->save();
-        $this->item->save();
+        $this->validate([
+            'item_name' => 'required|string|max:255',
+            'item_price' => 'required|numeric',
+            'item_quantity' => 'required|integer',
+            'category_id' => 'required|exists:category,id',
+            'manufacturer_id' => 'required|exists:manufacturer,id',
+        ]);
+
+        // Update the item based on the form data
+        $item = Item::findOrFail($this->id);
+        $item->update([
+            'item_name' => $this->item_name,
+            'item_price' => $this->item_price,
+            'item_quantity' => $this->item_quantity,
+            'category_id' => $this->category_id,
+            'manufacturer_id' => $this->manufacturer_id,
+        ]);
+        $item->update($this->pcform);
 
         flash()->success('Item updated successfully');
         return $this->redirect(IndexPC::class, navigate: true);

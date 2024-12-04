@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('manufacturer', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->foreignId('partcategory_id')->nullable()->constrained('partcategory');
+            $table->foreignId('category_id')->nullable()->constrained('category');
             $table->timestamps();
         });
     }

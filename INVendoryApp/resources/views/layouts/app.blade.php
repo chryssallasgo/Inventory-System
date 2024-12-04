@@ -13,6 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
+        @livewireScripts
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen text-gray-900 bg-gray-100 dark:text-white dark:bg-orange-100">

@@ -5,7 +5,7 @@ use Faker\Provider\Base;
 
 class CustomFakerProvider extends Base
 {
-    protected $partcategory = [ 
+    protected $category = [ 
         'Piatos' => 'Food', 
         'Clear Shampoo' => 'Necessities', 
         'Coca Cola' => 'Beverages',
@@ -23,11 +23,11 @@ class CustomFakerProvider extends Base
 
     public function item_name() 
     { 
-         return $this->generator->randomElement(array_keys($this->partcategory)); 
+         return $this->generator->randomElement(array_keys($this->category)); 
     } 
-    public function partcategory($item) 
+    public function category($item) 
     {
-         return $this->partcategory[$item] ?? 'Unknown'; 
+         return $this->category[$item] ?? 'Unknown'; 
     }
 }
 

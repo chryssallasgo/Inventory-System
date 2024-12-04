@@ -17,7 +17,7 @@ class ReportController extends Controller
             'item_name' => $item,
             'item_price' => 'item price',
             'item_quantity' => 'item quantity',
-            'partcategory_id' => 'category id',
+            'category_id' => 'category id',
             'manufacturer_id' => 'manufactuere id',
         ];
 

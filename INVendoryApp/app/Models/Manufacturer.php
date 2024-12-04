@@ -13,12 +13,12 @@ class Manufacturer extends Model
 
     protected $fillable = [
         'name',
-        'partcategory_id'
+        'category_id'
     ];
 
-    public function partcategory()
+    public function category()
     {
-        return $this->belongsTo(PartCategory::class, 'partcategory_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function item()

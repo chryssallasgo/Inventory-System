@@ -38,7 +38,7 @@
                     <td>{{ $item->item_name }}</td>
                     <td>{{ $item->item_price }}</td>
                     <td>{{ $item->item_quantity }}</td>
-                    <td>{{ $item->partcategory_id }}</td>
+                    <td>{{ $item->category_id }}</td>
                     <td>{{ $item->manufacturer_id }}</td>
                 </tr>
             @endforeach

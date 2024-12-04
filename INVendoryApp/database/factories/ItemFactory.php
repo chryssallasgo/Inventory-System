@@ -22,15 +22,15 @@ class ItemFactory extends Factory
         $this->faker->addProvider(new CustomFakerProvider($this->faker));
 
         $itemname = $this->faker->item_name(); 
-        $partcategory = $this->faker->partcategory($itemname);
+        $category = $this->faker->category($itemname);
 
-        $partCategoryModel = \App\Models\PartCategory::firstOrCreate(['name' => $partcategory]);
+        $CategoryModel = \App\Models\Category::firstOrCreate(['name' => $category]);
         
         return [
             'item_name' => $itemname,
             'item_price' => $this->faker->randomFloat(2, 15, 200),
             'item_quantity' => $this->faker->numberBetween(1, 100),
-            'partcategory_id' => $partCategoryModel->id,
+            'category_id' => $CategoryModel->id,
             'manufacturer_id' => \App\Models\Manufacturer::factory(),           
         ];
     }

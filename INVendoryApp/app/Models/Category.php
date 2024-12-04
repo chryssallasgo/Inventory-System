@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PartCategory extends Model
+class Category extends Model
 {
     use HasFactory;
     
-    protected $table = 'partcategory';
+    protected $table = 'category';
 
     protected $fillable = [
         'item_name'
@@ -17,6 +17,6 @@ class PartCategory extends Model
 
     public function manufacturers()
     {
-        return $this->hasMany(Manufacturer::class, 'partcategory_id');
+        return $this->hasMany(Manufacturer::class, 'category_id');
     }
 }

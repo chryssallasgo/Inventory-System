@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/pcparts', PCParts\IndexPC::class)->name('pcparts.indexpc');
     Route::get('/pcparts/createpc', PCParts\CreatePC::class)->name('pcparts.createpc');
-    Route::get('/pcparts/{item}/editpc', EditPC::class)->name('pcparts.editpc');  
+    Route::get('/pcparts/editpc/{id}', EditPC::class)->name('pcparts.editpc');  
 
 });
 

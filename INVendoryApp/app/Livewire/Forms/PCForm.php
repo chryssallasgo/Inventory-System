@@ -14,7 +14,7 @@ class PCForm extends Form
     public $item_name;
     public $item_price;
     public $item_quantity;
-    public $partcategory_id;
+    public $category_id;
     public $manufacturer_id;
 
     public function rules()
@@ -23,7 +23,7 @@ class PCForm extends Form
             'item_name' => 'required|string|max:255',
             'item_price' => 'required|numeric|min:0',
             'item_quantity' => 'required|numeric|min:0',
-            'partcategory_id' => 'required',
+            'category_id' => 'required',
             'manufacturer_id' => 'required',
         ];
 
@@ -38,7 +38,7 @@ class PCForm extends Form
     public function messages()
     {
         return [
-            'partcategory_id.required' => 'The part category field is required',
+            'category_id.required' => 'The part category field is required',
             'manufacturer_id.required' => 'A manufacturer field is required',
         ];
     }
@@ -49,7 +49,7 @@ class PCForm extends Form
         $this->item_name = $item->item_name;
         $this->item_price = $item->item_price;
         $this->item_quantity = $item->item_quantity;
-        $this->partcategory_id = $item->partcategory_id;
+        $this->category_id = $item->category_id;
         $this->manufacturer_id = $item->manufacturer_id;
     }
     public function all() 
@@ -58,7 +58,7 @@ class PCForm extends Form
             'item_name' => $this->item_name, 
             'item_price' => $this->item_price, 
             'item_quantity' => $this->item_quantity, 
-            'partcategory_id' => $this->partcategory_id, 
+            'category_id' => $this->category_id, 
             'manufacturer_id' => $this->manufacturer_id, 
         ]; 
     }

@@ -3,7 +3,7 @@
 namespace App\Livewire\PCParts;
 
 use App\Livewire\Forms\PCForm;
-use App\Models\PartCategory;
+use App\Models\Category;
 use App\Models\Manufacturer;
 use App\Models\Item;
 use Livewire\Component;
@@ -13,8 +13,8 @@ class CreatePC extends Component
     public PCForm $PCform;
     //public Form $form;
  
-    public $partcategory;
-    public $manufacturers = [];
+    public $category;
+    public $manufacturer = [];
 
     protected function rules()
     {
@@ -25,19 +25,19 @@ class CreatePC extends Component
     public function render()
     {
         return view('livewire.pcparts.createpc',[
-            'partcategory' => PartCategory::all()
+            'category' => Category::all()
         ]);
     }
     public function mount() 
     { 
-        $this->manufacturers = Manufacturer::all(); 
-        $this->partcategory = PartCategory::all();
+        $this->manufacturer = Manufacturer::all(); 
+        $this->category = Category::all();
     }
 
     public function updated($property)
     {
-        if ($property === 'pcform.partcategory_id') {
-            $this->manufacturers = Manufacturer::where('partcategory_id', $this->PCform['partcategory_id'])->get();
+        if ($property === 'pcform.category_id') {
+            $this->manufacturer = Manufacturer::where('category_id', $this->PCform['category_id'])->get();
         }
 
         // if($property === 'form.section_id'){

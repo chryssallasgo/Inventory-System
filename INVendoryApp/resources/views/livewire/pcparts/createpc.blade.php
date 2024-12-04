@@ -62,21 +62,21 @@
                                     @enderror
                                 </div>
                                 <div>
-                                    <label for="partcategory_id" class="block mb-2 text-sm font-medium dark:text-white">Item Category</label>
+                                    <label for="category_id" class="block mb-2 text-sm font-medium dark:text-white">Item Category</label>
                                     <select 
-                                    id="partcategory_id" 
-                                    wire:model="PCform.partcategory_id"
+                                    id="category_id" 
+                                    wire:model="PCform.category_id"
                                     class="block w-full px-4 py-3 text-sm rounded-lg border-gray-200 focus:border-orange-500 focus:ring-orange-500 pe-9 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600
-                                        @error('PCform.partcategory_id')
+                                        @error('PCform.category_id')
                                             text-red-900 focus:ring-red-500 focus:border-red-500 border-red-300
                                         @enderror
                                     ">
                                         <option value="">Select Category</option>
-                                        @foreach ($partcategory as $category)
+                                        @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
-                                        @error('PCform.partcategory_id')
+                                        @error('PCform.category_id')
                                         <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                                         @enderror
                                 </div>
