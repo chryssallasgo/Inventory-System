@@ -72,7 +72,7 @@
                                         @enderror
                                     ">
                                         <option value="">Select Category</option>
-                                        @foreach ($categories as $category)
+                                        @foreach ($category as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
@@ -91,7 +91,7 @@
                                         @enderror
                                     ">
                                     <option value="">Select Manufacturer</option>
-                                        @foreach ($manufacturers as $manufacturer)
+                                        @foreach ($manufacturer as $manufacturer)
                                             <option value="{{ $manufacturer->id }}">{{ $manufacturer->name }}</option>
                                         @endforeach
                                     </select>
