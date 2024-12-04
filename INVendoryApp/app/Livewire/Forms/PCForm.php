@@ -8,7 +8,7 @@ use Livewire\Form;
 
 class PCForm extends Form
 {
-    public ?Item $item;
+    public ?Item $item = null; // Initialize with null
 
     #[Validate]
     public $item_name;
@@ -19,13 +19,20 @@ class PCForm extends Form
 
     public function rules()
     {
-        return [
+        $rules = [
             'item_name' => 'required|string|max:255',
             'item_price' => 'required|numeric|min:0',
             'item_quantity' => 'required|numeric|min:0',
-            'partcategory_id' => 'required|exists:partcategory,id',
-            'manufacturer_id' => 'required|exists:manufacturer,id',
+            'partcategory_id' => 'required',
+            'manufacturer_id' => 'required',
         ];
+
+        if ($this->item) {
+            // Modify rules based on existing item
+            $rules['item_name'] = 'required|string|max:255|unique:item,item_name,' . $this->item->id;
+        }
+
+        return $rules;
     }
 
     public function messages()
@@ -45,15 +52,14 @@ class PCForm extends Form
         $this->partcategory_id = $item->partcategory_id;
         $this->manufacturer_id = $item->manufacturer_id;
     }
-
-    public function all()
-    {
-        return [
-            'item_name' => $this->item_name,
-            'item_price' => $this->item_price,
-            'item_quantity' => $this->item_quantity,
-            'partcategory_id' => $this->partcategory_id,
-            'manufacturer_id' => $this->manufacturer_id,
-        ];
+    public function all() 
+    { 
+        return [ 
+            'item_name' => $this->item_name, 
+            'item_price' => $this->item_price, 
+            'item_quantity' => $this->item_quantity, 
+            'partcategory_id' => $this->partcategory_id, 
+            'manufacturer_id' => $this->manufacturer_id, 
+        ]; 
     }
 }

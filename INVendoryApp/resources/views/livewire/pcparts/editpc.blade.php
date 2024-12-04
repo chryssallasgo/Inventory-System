@@ -17,7 +17,7 @@
                                     <input 
                                         type="text" 
                                         id="item_name" 
-                                        wire:model="pcform.item_name" 
+                                        wire:model.blur="pcform.item_name" 
                                         class="block w-full px-4 py-3 text-sm rounded-lg border-gray-200 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 
                                         @error('pcform.item_name') text-red-900 focus:ring-red-500 focus:border-red-500 border-red-300 @enderror">
                                     @error('pcform.item_name') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
@@ -28,7 +28,7 @@
                                         type="number" 
                                         step="1.00"
                                         id="item_price" 
-                                        wire:model="pcform.item_price" 
+                                        wire:model.blur="pcform.item_price" 
                                         class="block w-full px-4 py-3 text-sm rounded-lg border-gray-200 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 
                                         @error('pcform.item_price') text-red-900 focus:ring-red-500 focus:border-red-500 border-red-300 @enderror">
                                     @error('pcform.item_price') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
@@ -39,7 +39,7 @@
                                         type="number" 
                                         step="1.00"
                                         id="item_quantity" 
-                                        wire:model="pcform.item_quantity" 
+                                        wire:model.blur="pcform.item_quantity" 
                                         class="block w-full px-4 py-3 text-sm rounded-lg border-gray-200 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 
                                         @error('pcform.item_quantity') text-red-900 focus:ring-red-500 focus:border-red-500 border-red-300 @enderror">
                                     @error('pcform.item_quantity') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
@@ -48,12 +48,12 @@
                                     <label for="partcategory_id" class="block mb-2 text-sm font-medium dark:text-white">Item Category</label>
                                     <select 
                                         id="partcategory_id" 
-                                        wire:model="pcform.partcategory_id" 
+                                        wire:model.live="pcform.partcategory_id" 
                                         class="block w-full px-4 py-3 text-sm rounded-lg border-gray-200 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 
                                         @error('pcform.partcategory_id') text-red-900 focus:ring-red-500 focus:border-red-500 border-red-300 @enderror">
                                         <option value="">Select Category</option>
-                                        @foreach ($partcategory as $partcategory)
-                                            <option value="{{ $partcategory->id }}">{{ $partcategory->name }}</option>
+                                        @foreach ($partcategory as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('pcform.partcategory_id') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
@@ -62,10 +62,10 @@
                                     <label for="manufacturer_id" class="block mb-2 text-sm font-medium dark:text-white">Manufacturer</label>
                                     <select 
                                         id="manufacturer_id" 
-                                        wire:model="pcform.manufacturer_id" 
+                                        wire:model.live="pcform.manufacturer_id" 
                                         class="block w-full px-4 py-3 text-sm rounded-lg border-gray-200 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 
                                         @error('pcform.manufacturer_id') text-red-900 focus:ring-red-500 focus:border-red-500 border-red-300 @enderror">
-                                        <option value="">Select a Manufacturer</option>
+                                        <option value=" ">Select a Manufacturer</option>
                                         @foreach ($manufacturers as $manufacturer)
                                             <option value="{{ $manufacturer->id }}">{{ $manufacturer->name }}</option>
                                         @endforeach

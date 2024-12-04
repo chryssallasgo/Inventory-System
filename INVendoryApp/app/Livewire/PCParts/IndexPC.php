@@ -19,6 +19,7 @@ class IndexPC extends Component
 
     public function render()
     {
+
         $query = Item::query();
 
         $query = $this->applySearch($query);
@@ -27,6 +28,7 @@ class IndexPC extends Component
 
         return view('livewire.pcparts.indexpc', [
             'items' => $query->paginate(10),
+
         ]);
     }
     public function applySort(Builder $query)

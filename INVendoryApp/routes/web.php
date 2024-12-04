@@ -20,9 +20,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/generate-report', [ReportController::class, 'generateReport'])->name('pcparts.report');
 
-    Route::get('/PCParts', PCParts\IndexPC::class)->name('pcparts.indexpc');
-    Route::get('/PCParts/CreatePC', PCParts\CreatePC::class)->name('pcparts.createpc');
-    Route::get('/PCParts/EditPC/{item}', EditPC::class)->name('pcparts.editpc');   
+    Route::get('/pcparts', PCParts\IndexPC::class)->name('pcparts.indexpc');
+    Route::get('/pcparts/createpc', PCParts\CreatePC::class)->name('pcparts.createpc');
+    Route::get('/pcparts/{item}/editpc', EditPC::class)->name('pcparts.editpc');  
 
 });
 
