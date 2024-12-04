@@ -12,7 +12,7 @@ class PartCategory extends Model
     protected $table = 'partcategory';
 
     protected $fillable = [
-        'pcpart_name'
+        'item_name'
     ];
 
     public function manufacturers()

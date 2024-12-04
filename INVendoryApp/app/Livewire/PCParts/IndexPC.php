@@ -2,7 +2,7 @@
 
 namespace App\Livewire\PCParts;
 
-use App\Models\PCPart;
+use App\Models\Item;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
@@ -19,14 +19,14 @@ class IndexPC extends Component
 
     public function render()
     {
-        $query = PCPart::query();
+        $query = Item::query();
 
         $query = $this->applySearch($query);
 
         $query = $this->applySort($query);
 
         return view('livewire.pcparts.indexpc', [
-            'pcparts' => $query->paginate(10),
+            'items' => $query->paginate(10),
         ]);
     }
     public function applySort(Builder $query)
@@ -47,10 +47,10 @@ class IndexPC extends Component
 
     public function applySearch(Builder $query)
     {
-        return $query->where('pcpart_name', 'like', '%' . $this->search . '%');
+        return $query->where('item_name', 'like', '%' . $this->search . '%');
     }
-    public function delete(PCPart $pcpart) 
+    public function delete(Item $item) 
     { 
-        $pcpart->delete();
+        $item->delete();
     }
 }

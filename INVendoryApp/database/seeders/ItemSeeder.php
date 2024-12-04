@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\PCPart;
+use App\Models\Item;
 use App\Models\PartCategory;
 use App\Models\Manufacturer;
 
-class PCPartSeeder extends Seeder
+class ItemSeeder extends Seeder
 {
     public function run(): void
     {
@@ -16,16 +16,16 @@ class PCPartSeeder extends Seeder
         $manufacturers = Manufacturer::all();
 
         // Use the factory to create PCPart instances
-        PCPart::factory()
+        Item::factory()
             ->count(50) // Adjust the count as needed
             ->create()
-            ->each(function ($pcpart) use ($category, $manufacturers) {
+            ->each(function ($item) use ($category, $manufacturers) {
                 // Assign random category and manufacturer
-                $partcategory = $category->firstWhere('name', $pcpart->partcategory->name);
-                $pcpart->partcategory_id = $partcategory->id;
+                $partcategory = $category->firstWhere('name', $item->partcategory->name);
+                $item->partcategory_id = $partcategory->id;
 
-                $pcpart->manufacturer_id = $manufacturers->random()->id;
-                $pcpart->save();
+                $item->manufacturer_id = $manufacturers->random()->id;
+                $item->save();
             });
     }
 }

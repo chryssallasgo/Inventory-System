@@ -5,27 +5,22 @@ namespace App\Livewire\PCParts;
 use App\Livewire\Forms\PCForm;
 use App\Models\PartCategory;
 use App\Models\Manufacturer;
-use App\Models\PCPart;
+use App\Models\Item;
 use Livewire\Component;
 
 class CreatePC extends Component
 {
-    public $PCform = [ 
-        'pcname' => '', 
-        'partcategory' => '', 
-        'pcpart_id' => '', 
-        'manufacturer_id' => '', 
-    ];
+    public PCForm $PCform;
     //public Form $form;
  
     public $partcategory;
     public $manufacturers = [];
 
-    protected $rules = [ 
-        'PCform.pcpart_name' => 'required|string|max:255', 
-        'PCform.pcpart_price' => 'required|numeric', 
-        'PCform.partcategory_id' => 'required|integer', 
-        'PCform.manufacturer_id' => 'required|integer', ];
+    protected function rules()
+    {
+        return $this->PCform->rules();
+    }
+
 
     public function render()
     {
@@ -41,7 +36,7 @@ class CreatePC extends Component
 
     public function updated($property)
     {
-        if ($property === 'PCform.partcategory_id') {
+        if ($property === 'pcform.partcategory_id') {
             $this->manufacturers = Manufacturer::where('partcategory_id', $this->PCform['partcategory_id'])->get();
         }
 
@@ -52,13 +47,11 @@ class CreatePC extends Component
 
     public function store()
     {
-        $this->validate();
+        $validated = $this->PCform->validate();
         
-        PCPart::create(
-            $this->PCform
-        );
+       Item::create($validated);
         
-       flash()->success('Computer part added successfully');
+       flash()->success('Item added successfully');
         
         return redirect()->route('pcparts.indexpc');
     }

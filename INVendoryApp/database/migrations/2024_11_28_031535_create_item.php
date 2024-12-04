@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pcpart', function (Blueprint $table) {
+        Schema::create('item', function (Blueprint $table) {
             $table->id();
             $table->foreignId('partcategory_id')->constrained('partcategory');
             $table->foreignId('manufacturer_id')->constrained('manufacturer');
-            $table->string('pcpart_name');
-            $table->decimal('pcpart_price', 8, 2);
+            $table->string('item_name');
+            $table->decimal('item_price', 8, 2);
+            $table->integer('item_quantity');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pcpart');
+        Schema::dropIfExists('item');
     }
 };

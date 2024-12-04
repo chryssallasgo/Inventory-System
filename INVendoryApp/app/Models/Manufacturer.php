@@ -21,8 +21,8 @@ class Manufacturer extends Model
         return $this->belongsTo(PartCategory::class, 'partcategory_id');
     }
 
-    public function pcparts()
+    public function items()
     {
-        return $this->hasMany(PCPart::class);
+        return $this->hasMany(Item::class);
     }
 }

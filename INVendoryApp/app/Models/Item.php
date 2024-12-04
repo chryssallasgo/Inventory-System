@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PCPart extends Model
+class Item extends Model
 {
     use HasFactory;
-    protected $table = 'pcpart';
+    protected $table = 'item';
     protected $fillable = [
-        'pcpart_name',
-        'pcpart_price',
+        'item_name',
+        'item_price',
+        'item_quantity',
         'partcategory_id',
         'manufacturer_id'
 
@@ -29,6 +30,6 @@ class PCPart extends Model
 
     public function getFormattedPriceAttribute() 
     { 
-        return '$' . number_format($this->pcpart_price, 2); 
+        return '$' . number_format($this->item_price, 2); 
     }
 }

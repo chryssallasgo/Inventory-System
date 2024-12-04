@@ -6,10 +6,10 @@
         clip-path: polygon(0 180%, 100% -100%, 100% 100%, 0 100%); 
     } 
     .bg-custom-image {
-        background-image: url(C:\Users\Chryssdale\OneDrive\Documents\BSIT_third_Year\ELECT1\Finals\PortfolioWebsite\Computer-Parts-Inv\computer.jpg);
+        background-image: url(https://images.unsplash.com/photo-1614982452482-b730a4920e64?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     }
     .bg-custom-image1 {
-        background-image: url(https://images.unsplash.com/photo-1658673640381-82912c827a68?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); 
+        background-image: url(https://images.unsplash.com/photo-1698870366378-1b213ce2049c?q=80&w=1766&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); 
         width: 100%;
         height: 40vh;
         background-size: cover; 
@@ -65,10 +65,10 @@
 
 }
 .bg-one{
-    background-image: url('C:/Users/Chryssdale/OneDrive/Documents/BSIT_third_Year/ELECT1/Finals/PortfolioWebsite/Computer-Parts-Inv/comp4.jpg');  
+    background-image: url('https://images.unsplash.com/photo-1518413311144-e7fed23b3fac?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');  
 }
 .bg-two{
-    background-image: url('C:/Users/Chryssdale/OneDrive/Documents/BSIT_third_Year/ELECT1/Finals/PortfolioWebsite/Computer-Parts-Inv/comp5.jpg');  
+    background-image: url('https://images.unsplash.com/photo-1664382953403-fc1ac77073a0?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');  
 }
 .parent:hover .child{
     transform:scale(1.2)

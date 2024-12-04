@@ -1,16 +1,16 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\PCPart;
+use App\Models\Item;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Faker\CustomFakerProvider;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PCParts>
  */
-class PCPartFactory extends Factory
+class ItemFactory extends Factory
 {
-    protected $model = PCPart::class;
+    protected $model = Item::class;
     /**
      * Define the model's default state.
      *
@@ -21,17 +21,17 @@ class PCPartFactory extends Factory
 
         $this->faker->addProvider(new CustomFakerProvider($this->faker));
 
-        $pcpartname = $this->faker->pcpart_name(); 
-        $partcategory = $this->faker->partcategory($pcpartname);
+        $itemname = $this->faker->item_name(); 
+        $partcategory = $this->faker->partcategory($itemname);
 
         $partCategoryModel = \App\Models\PartCategory::firstOrCreate(['name' => $partcategory]);
         
         return [
-            
-            'pcpart_name' => $pcpartname,
+            'item_name' => $itemname,
+            'item_price' => $this->faker->randomFloat(2, 15, 200),
+            'item_quantity' => $this->faker->numberBetween(1, 100),
             'partcategory_id' => $partCategoryModel->id,
-            'manufacturer_id' => \App\Models\Manufacturer::factory(),
-            'pcpart_price' => $this->faker->randomFloat(2, 8000, 11000)
+            'manufacturer_id' => \App\Models\Manufacturer::factory(),           
         ];
     }
 }

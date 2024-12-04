@@ -13,17 +13,9 @@ class ManufacturerSeeder extends Seeder
         $category = PartCategory::all();
 
         $manufacturers = [
-            ['name' => 'Intel', 'partcategory_id' => $category->where('name', 'CPU')->first()->id],
-            ['name' => 'AMD', 'partcategory_id' => $category->where('name', 'CPU')->first()->id],
-            ['name' => 'Nvidia', 'partcategory_id' => $category->where('name', 'GPU')->first()->id],
-            ['name' => 'Gigabyte', 'partcategory_id' => $category->where('name', 'MOBO')->first()->id], 
-            ['name' => 'MSI', 'partcategory_id' => $category->where('name', 'MOBO')->first()->id], 
-            ['name' => 'Kingston', 'partcategory_id' => $category->where('name', 'RAM')->first()->id], 
-            ['name' => 'Corsair', 'partcategory_id' => $category->where('name', 'RAM')->first()->id], 
-            ['name' => 'Asus', 'partcategory_id' => $category->where('name', 'MOBO')->first()->id], 
-            ['name' => 'Samsung', 'partcategory_id' => $category->where('name', 'SSD')->first()->id], 
-            ['name' => 'Western Digital', 'partcategory_id' => $category->where('name', 'HDD')->first()->id],
-            ['name' => 'Cooler Master', 'partcategory_id' => $category->where('name', 'PSU')->first()->id],
+            ['name' => 'Coca Cola Company', 'partcategory_id' => $category->where('name', 'Beverages')->first()->id],
+            ['name' => 'Monde M.Y. San Corporation', 'partcategory_id' => $category->where('name', 'Food')->first()->id],
+            ['name' => 'Unilever', 'partcategory_id' => $category->where('name', 'Necessities')->first()->id],
         ];
 
         foreach ($manufacturers as $manufacturer) {

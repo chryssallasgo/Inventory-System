@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Manufacturer;
 use App\Models\PartCategory;
-use App\Models\PCPart;
+use App\Models\Item;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PartCategorySeeder::class,
             ManufacturerSeeder::class,
-            PCPartSeeder::class
+            ItemSeeder::class
         ]);
     }
 }
