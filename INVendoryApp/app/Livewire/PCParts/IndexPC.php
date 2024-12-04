@@ -49,7 +49,8 @@ class IndexPC extends Component
 
     public function applySearch(Builder $query)
     {
-        return $query->where('item_name', 'like', '%' . $this->search . '%');
+        return $query->where('item_name', 'like', '%' . $this->search . '%')
+                     ->orWhere('id', 'like', '%' . $this->search . '%');
     }
     public function delete(Item $item) 
     { 
