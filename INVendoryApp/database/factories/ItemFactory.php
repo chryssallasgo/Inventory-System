@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Faker\CustomFakerProvider;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PCParts>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Items>
  */
 class ItemFactory extends Factory
 {

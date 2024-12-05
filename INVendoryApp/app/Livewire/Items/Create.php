@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Livewire\PCParts;
+namespace App\Livewire\Items;
 
-use App\Livewire\Forms\PCForm;
+use App\Livewire\Forms\ItemForm;
 use App\Models\Category;
 use App\Models\Manufacturer;
 use App\Models\Item;
 use Livewire\Component;
 
-class CreatePC extends Component
+class Create extends Component
 {
-    public PCForm $PCform;
+    public ItemForm $ItemForm;
     //public Form $form;
  
     public $category;
@@ -18,13 +18,13 @@ class CreatePC extends Component
 
     protected function rules()
     {
-        return $this->PCform->rules();
+        return $this->ItemForm->rules();
     }
 
 
     public function render()
     {
-        return view('livewire.pcparts.createpc',[
+        return view('livewire.items.create',[
             'category' => Category::all()
         ]);
     }
@@ -36,8 +36,8 @@ class CreatePC extends Component
 
     public function updated($property)
     {
-        if ($property === 'pcform.category_id') {
-            $this->manufacturer = Manufacturer::where('category_id', $this->PCform['category_id'])->get();
+        if ($property === 'itemform.category_id') {
+            $this->manufacturer = Manufacturer::where('category_id', $this->ItemForm['category_id'])->get();
         }
 
         // if($property === 'form.section_id'){
@@ -47,13 +47,13 @@ class CreatePC extends Component
 
     public function store()
     {
-        $validated = $this->PCform->validate();
+        $validated = $this->ItemForm->validate();
         
        Item::create($validated);
         
        flash()->success('Item added successfully');
         
-        return redirect()->route('pcparts.indexpc');
+        return redirect()->route('items.index');
     }
 
 }

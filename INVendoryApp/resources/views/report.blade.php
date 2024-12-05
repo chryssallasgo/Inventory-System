@@ -30,19 +30,19 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Part Category</th>
+                <th>Category</th>
                 <th>Manufacturer</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($item_name as $item)
+            @foreach ($items as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->item_name }}</td>
                     <td>${{ number_format($item->item_price, 2) }}</td>
                     <td>{{ $item->item_quantity }}</td>
-                    <td>{{ $item->category_id }}</td>
-                    <td>{{ $item->manufacturer_id }}</td>
+                    <td>{{ $item->category->name }}</td>
+                    <td>{{ $item->manufacturer->name }}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -6,21 +6,22 @@ use Faker\Provider\Base;
 class CustomFakerProvider extends Base
 {
     protected $category = [ 
-        'Piatos' => 'Food', 
+        'Piattos' => 'Food', 
         'Clear Shampoo' => 'Necessities', 
         'Coca Cola' => 'Beverages',
-        'Kulafu' => 'Beverages',
+        'Red Bull Energy' => 'Beverages',
         'SafeGuard' => 'Necessities',
         'SkyFlakes' => 'Food',
-        'Nestlé' => 'Food',
-        'PepsiCo' => 'Beverages',
-        'Kraft Heinz' => 'Food',
-        'Dr Pepper Snapple Group' => 'Beverages',
-        'Procter & Gamble' => 'Necessities',
-        'Johnson & Johnson' => 'Necessities',
-        'Monster Beverage Corporation' => 'Beverages',
-        'Red Bull GmbH' => 'Beverages',
-        'Kimberly-Clark' => 'Necessities',
+        'Kit Kat' => 'Food',
+        'Pepsi' => 'Beverages',
+        'Kraft Macaroni & Cheese' => 'Food',
+        '7UP' => 'Beverages',
+        'Gillette' => 'Necessities',
+        'Listerine' => 'Necessities',
+        'Monster Energy' => 'Beverages',
+        'Red Bull Zero' => 'Beverages',
+        'Kleenex' => 'Necessities',
+        'Nissin Cup Noodles' => 'Food',
 
     ];
 
@@ -39,6 +40,7 @@ class CustomFakerProvider extends Base
             'Monster Beverage Corporation',
             'Red Bull GmbH',
             'Kimberly-Clark',
+            'Universal Robina Corporation',
         ];   
          return $this->generator->randomElement($manufacturers);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\PCParts;
+namespace App\Livewire\Items;
 
 use App\Models\Item;
 use Illuminate\Database\Eloquent\Builder;
@@ -8,7 +8,7 @@ use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
-class IndexPC extends Component
+class Index extends Component
 {
 
     public string $search = '';
@@ -26,7 +26,7 @@ class IndexPC extends Component
 
         $query = $this->applySort($query);
 
-        return view('livewire.pcparts.indexpc', [
+        return view('livewire.items.index', [
             'items' => $query->paginate(10),
 
         ]);

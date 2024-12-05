@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="min-h-screen p-6 text-white ">
-        <div class="absolute inset-0 bg-gray-200 backdrop-blur-md"></div>
+        <div class="absolute inset-0 bg-orange-100 backdrop-blur-md"></div>
     
         <div class="absolute inset-0 z-0 bg-center bg-contain bg-custom-image1 brightness-75"></div>
 

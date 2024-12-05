@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\PCParts;
-use App\Livewire\PCParts\EditPC;
+use App\Livewire\Items;
+use App\Livewire\Items\Edit;
 use App\Http\Controllers\ReportController;
 
 Route::get('/', function () {
@@ -18,11 +18,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/generate-report', [ReportController::class, 'generateReport'])->name('pcparts.report');
+    Route::get('/generate-report', [ReportController::class, 'generateReport'])->name('items.report');
 
-    Route::get('/pcparts', PCParts\IndexPC::class)->name('pcparts.indexpc');
-    Route::get('/pcparts/createpc', PCParts\CreatePC::class)->name('pcparts.createpc');
-    Route::get('/pcparts/editpc/{id}', EditPC::class)->name('pcparts.editpc');  
+    Route::get('/items', Items\Index::class)->name('items.index');
+    Route::get('/items/create', Items\Create::class)->name('items.create');
+    Route::get('/items/edit/{id}', Edit::class)->name('items.edit');  
 
 });
 

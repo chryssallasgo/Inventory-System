@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       // PCPart::factory(10)->create();
+       // Item::factory(10)->create();
 
         $this->call([
             CategorySeeder::class,

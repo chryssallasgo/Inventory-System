@@ -6,7 +6,7 @@ use App\Models\Item;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class PCForm extends Form
+class ItemForm extends Form
 {
     public ?Item $item = null; // Initialize with null
 

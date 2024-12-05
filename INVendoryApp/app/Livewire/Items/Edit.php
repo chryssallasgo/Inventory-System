@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Livewire\PCParts;
+namespace App\Livewire\Items;
 
-use App\Livewire\Forms\PCForm;
+use App\Livewire\Forms\ItemForm;
 use App\Models\Manufacturer;
 use App\Models\Category;
 use App\Models\Item;
 use Livewire\Component;
 
-class EditPC extends Component
+class Edit extends Component
 {
     public $id;
     public Item $item; 
-    public $pcform = []; 
+    public $itemform = []; 
     public $manufacturers = []; 
     public $category = [];
     public $item_name;
@@ -23,17 +23,17 @@ class EditPC extends Component
 
     public function mount($id=null)
     {
-         // dd($this->pcform);
+         // dd($this->itemform);
          $this->id = $id; // Store the ID
          $item = Item::findOrFail($this->id); // Get the item or fail
  
          // Populate the form data
-         $this->pcform = $item->toArray(); 
-         $this->item_name = $this->pcform['item_name'];
-         $this->item_price = $this->pcform['item_price'];
-         $this->item_quantity = $this->pcform['item_quantity'];
-         $this->category_id = $this->pcform['category_id'];
-         $this->manufacturer_id = $this->pcform['manufacturer_id'];
+         $this->itemform = $item->toArray(); 
+         $this->item_name = $this->itemform['item_name'];
+         $this->item_price = $this->itemform['item_price'];
+         $this->item_quantity = $this->itemform['item_quantity'];
+         $this->category_id = $this->itemform['category_id'];
+         $this->manufacturer_id = $this->itemform['manufacturer_id'];
 
         $this->manufacturers = Manufacturer::all(); 
         $this->category = Category::all();
@@ -41,7 +41,7 @@ class EditPC extends Component
     public function render()
     {
         
-        return view('livewire.pcparts.editpc', [
+        return view('livewire.items.edit', [
             'category' => $this->category,
             'manufacturers' => $this->manufacturers,
         ]);
@@ -65,9 +65,9 @@ class EditPC extends Component
             'category_id' => $this->category_id,
             'manufacturer_id' => $this->manufacturer_id,
         ]);
-        $item->update($this->pcform);
+        $item->update($this->itemform);
 
         flash()->success('Item updated successfully');
-        return $this->redirect(IndexPC::class, navigate: true);
+        return $this->redirect(Index::class, navigate: true);
     }
 }

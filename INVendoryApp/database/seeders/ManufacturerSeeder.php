@@ -25,6 +25,7 @@ class ManufacturerSeeder extends Seeder
             ['name' => 'Monster Beverage Corporation', 'category_id' => $category->where('name', 'Beverages')->first()->id],
             ['name' => 'Red Bull GmbH', 'category_id' => $category->where('name', 'Beverages')->first()->id],
             ['name' => 'Kimberly-Clark', 'category_id' => $category->where('name', 'Necessities')->first()->id],
+            ['name' => 'Universal Robina Corporation', 'category_id' => $category->where('name', 'Food')->first()->id], //
         ];
 
         foreach ($manufacturers as $manufacturer) {

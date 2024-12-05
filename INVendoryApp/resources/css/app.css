@@ -40,11 +40,15 @@
     transition: opacity 0.2s ease-in-out;
 }
 
-.gear-icon:hover img {
+.gear-icon:hover img, .logout-icon:hover img {
     opacity: 1;
 }
 
-.logout-icon:hover img {
+.icon-container p {
+    opacity: 0.3;
+    transition: opacity 0.2s ease-in-out;
+}
+.icon-container p:hover {
     opacity: 1;
 }
 .parent{
@@ -73,3 +77,39 @@
 .parent:hover .child{
     transform:scale(1.2)
 }
+.user-info {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    padding: 5px; /* Add padding for better spacing */
+}
+
+.user-info img {
+    margin-right: 10px; /* Space between avatar and text */
+    border-radius: 50%; /* Ensure avatar is circular */
+}
+
+.user-details {
+    flex-grow: 1; /* Allow the text to take available space */
+}
+
+.username, .email {
+    margin: 0;
+}
+
+.icon-container {
+    display: flex; 
+    justify-content: space-around; 
+    margin-top: 10px; 
+    transform: translateX(-15%);
+    white-space: nowrap;
+ 
+}
+
+.icon-container img {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+
+
+
+

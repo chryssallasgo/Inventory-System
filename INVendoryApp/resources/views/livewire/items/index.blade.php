@@ -8,7 +8,7 @@
                     <p class="text-sm text-gray-500 dark:text-neutral-400">List of Items</p>
                 </div>
                <div>
-                <a href="{{ route('pcparts.createpc') }}" wire:navigate class="inline-flex items-center px-4 py-3 mb-4 text-sm font-medium text-white bg-orange-500 border border-transparent rounded-lg shadow-md gap-x-2 hover:bg-amber-600 focus:outline-none focus:bg-orange-600 disabled:opacity-50 disabled:pointer-events-none">
+                <a href="{{ route('items.create') }}" wire:navigate class="inline-flex items-center px-4 py-3 mb-4 text-sm font-medium text-white bg-orange-500 border border-transparent rounded-lg shadow-md gap-x-2 hover:bg-amber-600 focus:outline-none focus:bg-orange-600 disabled:opacity-50 disabled:pointer-events-none">
                     Add Item(s)
                 </a>
                </div>
@@ -69,7 +69,7 @@
                                             <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap dark:text-neutral-500">{{ $item->category->name }}</td>
                                             <td class="px-6 py-4 text-sm text-gray-800 whitespace-wrap dark:text-neutral-500">{{ $item->manufacturer->name }}</td>
                                             <td class="px-6 py-4 text-sm font-medium whitespace-nowrap text-end">
-                                              <a href="{{ route('pcparts.editpc', $item->id) }}" wire:navigate class="inline-flex items-center border-transparent gap-x-2 focus:outline-none disabled:opacity-50 disabled:pointer-events-none"><img src="https://cdn-icons-png.flaticon.com/128/8961/8961331.png" alt="Edit Icon" class="w-6 h-6"></a>
+                                              <a href="{{ route('items.edit', $item->id) }}" wire:navigate class="inline-flex items-center border-transparent gap-x-2 focus:outline-none disabled:opacity-50 disabled:pointer-events-none"><img src="https://cdn-icons-png.flaticon.com/128/8961/8961331.png" alt="Edit Icon" class="w-6 h-6"></a>
                                             <button type="button" 
                                               wire:click="delete({{$item->id}})"
                                               wire:confirm="Are you sure you want to delete this student?"
